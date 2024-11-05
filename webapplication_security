@@ -38,3 +38,7 @@ group of users or even certain users on a file level.
 The cms/webapp is then run as the loged in user and can access files only via the permissions
 set on the filesystem.
 (http://blog.serverbuddies.com/run-php-as-user-instead-of-as-the-web-server-user-nobody/)
+
+
+See also:
+(https://cheatsheetseries.owasp.org/cheatsheets/Web_Service_Security_Cheat_Sheet.html)
