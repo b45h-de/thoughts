@@ -1,0 +1,39 @@
+Just recently i stumbled on a webserver that wasn't configured properbly.
+The webserver was run by a school using a cms.
+The webserver itself was setup with directory browsing enabled for a certain
+folder in the webroot ( for example /files/ ).
+Under this folder where other folder, also from the cms.
+For example /files/cms/messages/
+This folder contained pictures that where presumably send between the cms
+users as attachemments and saved there.
+The pictures contained personal information, for example pictures/screenshots
+with Names and grades on it.
+So I sent a mail to the person that was mentioned on the website as the technical
+contact.
+He was able to fix the problem by disabling the directory browsing that was activated
+during migration but not disabled afterwards, as he told me.
+So after I tested to access the above directory again I got the expected 403 Forbidden
+response by the webserver.
+In the mail to the technical contact I provided some example files that I was able to
+access.
+Trying to access these was still possible.
+The reason of course is that the Folder containing these files has probably default permissions
+providing the user used to run the webserver process with the permissions to access these files.
+So I thought about what would be a better way restrict access to these files.
+
+I think that a good way would be to run the cms if possible under a user ( not the one used to run
+the webserver ).
+(https://blog.frehi.be/2019/02/16/running-different-php-applications-as-different-users/)
+The permission to the folder would then be changed so that the webserver wouldn't be able to access
+these files but the user running the cms would be.
+So then the cms would have the task to do the permissions checking.
+This might also help if for example directory browsing is enabled by mistake.
+With the right permissions the Webserver wouldn't be able to access them.
+(https://serverfault.com/questions/357108/what-permissions-should-my-website-files-folders-have-on-a-linux-webserver)
+
+Another possiblity could be to have all users of a cms/webapp have a user account
+on the webserver ( without permission to logon interactivly ), set the permission to this
+group of users or even certain users on a file level.
+The cms/webapp is then run as the loged in user and can access files only via the permissions
+set on the filesystem.
+(http://blog.serverbuddies.com/run-php-as-user-instead-of-as-the-web-server-user-nobody/)
