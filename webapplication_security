@@ -30,6 +30,7 @@ So then the cms would have the task to do the permissions checking.
 This might also help if for example directory browsing is enabled by mistake.
 With the right permissions the Webserver wouldn't be able to access them.
 (https://serverfault.com/questions/357108/what-permissions-should-my-website-files-folders-have-on-a-linux-webserver)
+(https://www.internalpointers.com/post/right-folder-permission-website)
 
 Another possiblity could be to have all users of a cms/webapp have a user account
 on the webserver ( without permission to logon interactivly ), set the permission to this
